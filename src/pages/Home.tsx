@@ -1,26 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { projects } from '../data/projects'
+import { ThemeToggle } from '../components/ThemeToggle'
 
 export function Home() {
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set())
-  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('theme') as 'dark' | 'light' | null
-      return saved ?? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
-    }
-    return 'dark'
-  })
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
-  }, [theme])
-
-  const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
 
   return (
-    <>
+    <div className="min-h-screen text-gray-900 dark:text-gray-100 transition-colors">
       <a href="#main-content" className="skip-link">
         Ana içeriğe atla
       </a>
@@ -31,15 +18,7 @@ export function Home() {
           <p className="site-subtitle">Yazılım Mühendisi</p>
         </div>
         <div className="header-actions">
-          <button
-            type="button"
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label={theme === 'dark' ? 'Aydınlık moda geç' : 'Karanlık moda geç'}
-            title={theme === 'dark' ? 'Aydınlık mod' : 'Karanlık mod'}
-          >
-            <span className="theme-icon" aria-hidden="true">{theme === 'dark' ? '☀️' : '🌙'}</span>
-          </button>
+          <ThemeToggle />
           <nav aria-label="Ana navigasyon">
             <ul className="nav-list">
               <li>
@@ -203,6 +182,6 @@ export function Home() {
       <footer className="site-footer">
         <p>© 2025 Muhammed Beşir Kesen. Tüm hakları saklıdır.</p>
       </footer>
-    </>
+    </div>
   )
 }
