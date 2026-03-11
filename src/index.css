@@ -1,3 +1,20 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #1E3A8A;
+  --color-secondary: #2563EB;
+  --color-accent: #7C3AED;
+  --color-surface: #F9FAFB;
+  --color-muted: #6B7280;
+  --color-error: #DC2626;
+  --color-success: #16A34A;
+
+  --font-family-sans: system-ui, -apple-system, sans-serif;
+  --font-family-mono: "Fira Code", "Consolas", monospace;
+}
+
 /* Minimal base - App.css ve tokens.css tüm stilleri yönetir */
 :root {
   font-synthesis: none;
