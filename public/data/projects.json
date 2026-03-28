@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "title": "AI Weather Assistant",
+    "description": "OpenWeather API ile anlık hava durumu sorgulama ve şehir bazlı tahmin ekranı.",
+    "tech": ["React", "TypeScript", "Fetch API", "Tailwind"],
+    "year": 2024,
+    "category": "frontend",
+    "featured": true,
+    "image": "/projeler/ai-weather.png",
+    "demoUrl": "https://example.com/demo/ai-weather",
+    "sourceUrl": "https://github.com/mbesirkesen/my-react-app"
+  },
+  {
+    "id": 2,
+    "title": "RAG Belge Soru-Cevap",
+    "description": "Belge üzerinden bağlama dayalı soru-cevap: embedding + retrieval + yanıt üretimi.",
+    "tech": ["Python", "FastAPI", "RAG", "PostgreSQL"],
+    "year": 2025,
+    "category": "backend",
+    "featured": true,
+    "image": "/projeler/rag-sistem.png",
+    "demoUrl": "https://example.com/demo/rag",
+    "sourceUrl": "https://github.com/mbesirkesen"
+  },
+  {
+    "id": 3,
+    "title": "Agentic AI Workflow",
+    "description": "Tool-using agent akışları ve görev planlama/çalıştırma adımları üzerine demo.",
+    "tech": ["TypeScript", "Node.js", "LLM", "Tools"],
+    "year": 2025,
+    "category": "fullstack",
+    "featured": false,
+    "image": "/projeler/agentic-ai.png",
+    "sourceUrl": "https://github.com/mbesirkesen"
+  },
+  {
+    "id": 4,
+    "title": "Kiosk IoT Panel",
+    "description": "Sensör verilerini izleyen basit bir panel: listeler, durum kartları ve filtreleme.",
+    "tech": ["React", "TypeScript", "Vite", "Tailwind"],
+    "year": 2024,
+    "category": "frontend",
+    "featured": false,
+    "image": "/projeler/kiosk-iot.png",
+    "demoUrl": "https://example.com/demo/kiosk"
+  },
+  {
+    "id": 5,
+    "title": "BookVerse API",
+    "description": "Kitap koleksiyonu için REST API: CRUD, doğrulama ve temel hata yönetimi.",
+    "tech": ["C#", ".NET", "REST", "Swagger"],
+    "year": 2023,
+    "category": "backend",
+    "featured": false,
+    "image": "/projeler/gorsel-yok.png"
+  }
+]
+
