@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react'
+import { useLocale } from '../../i18n/LocaleContext'
 
 interface ContactFormData {
   name: string
@@ -22,6 +23,7 @@ const initialFormData: ContactFormData = {
 }
 
 export default function ContactForm() {
+  const { locale } = useLocale()
   const [formData, setFormData] = useState<ContactFormData>(initialFormData)
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -31,25 +33,25 @@ export default function ContactForm() {
     const newErrors: FormErrors = {}
 
     if (!data.name.trim()) {
-      newErrors.name = 'Ad soyad zorunludur.'
+      newErrors.name = locale === 'tr' ? 'Ad soyad zorunludur.' : 'Full name is required.'
     } else if (data.name.trim().length < 2) {
-      newErrors.name = 'Ad soyad en az 2 karakter olmalıdır.'
+      newErrors.name = locale === 'tr' ? 'Ad soyad en az 2 karakter olmalıdır.' : 'Full name must be at least 2 characters.'
     }
 
     if (!data.email.trim()) {
-      newErrors.email = 'E-posta zorunludur.'
+      newErrors.email = locale === 'tr' ? 'E-posta zorunludur.' : 'Email is required.'
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-      newErrors.email = 'Geçerli bir e-posta adresi giriniz.'
+      newErrors.email = locale === 'tr' ? 'Geçerli bir e-posta adresi giriniz.' : 'Please enter a valid email address.'
     }
 
     if (!data.subject.trim()) {
-      newErrors.subject = 'Konu zorunludur.'
+      newErrors.subject = locale === 'tr' ? 'Konu zorunludur.' : 'Subject is required.'
     }
 
     if (!data.message.trim()) {
-      newErrors.message = 'Mesaj zorunludur.'
+      newErrors.message = locale === 'tr' ? 'Mesaj zorunludur.' : 'Message is required.'
     } else if (data.message.trim().length < 10) {
-      newErrors.message = 'Mesaj en az 10 karakter olmalıdır.'
+      newErrors.message = locale === 'tr' ? 'Mesaj en az 10 karakter olmalıdır.' : 'Message must be at least 10 characters.'
     }
 
     return newErrors
@@ -85,7 +87,7 @@ export default function ContactForm() {
       setSubmitSuccess(true)
       setFormData(initialFormData)
     } catch {
-      alert('Gönderim başarısız. Tekrar deneyin.')
+      alert(locale === 'tr' ? 'Gönderim başarısız. Tekrar deneyin.' : 'Submission failed. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -94,87 +96,89 @@ export default function ContactForm() {
   if (submitSuccess) {
     return (
       <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
-        <p className="text-green-800 font-medium">Mesajınız başarıyla gönderildi!</p>
+        <p className="text-green-800 font-medium">
+          {locale === 'tr' ? 'Mesajınız başarıyla gönderildi!' : 'Your message has been sent successfully!'}
+        </p>
         <button
           onClick={() => setSubmitSuccess(false)}
           className="mt-4 text-sm text-green-600 underline"
         >
-          Yeni mesaj gönder
+          {locale === 'tr' ? 'Yeni mesaj gönder' : 'Send another message'}
         </button>
       </div>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 max-w-lg" noValidate>
+    <form onSubmit={handleSubmit} className="space-y-4 max-w-2xl" noValidate>
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-1">
-          Ad Soyad
+          {locale === 'tr' ? 'Ad Soyad' : 'Full Name'}
         </label>
         <input
           id="name"
           type="text"
           value={formData.name}
           onChange={(e) => handleChange('name', e.target.value)}
-          className={`w-full border rounded-lg px-3 py-2 ${
+          className={`w-full border rounded-xl px-3 py-2.5 ${
             errors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
-          } dark:bg-gray-800 dark:text-white`}
-          placeholder="Adınız Soyadınız"
+          } dark:bg-slate-800 dark:text-white`}
+          placeholder={locale === 'tr' ? 'Adınız Soyadınız' : 'Your full name'}
         />
         {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
       </div>
 
       <div>
         <label htmlFor="email" className="block text-sm font-medium mb-1">
-          E-posta
+          {locale === 'tr' ? 'E-posta' : 'Email'}
         </label>
         <input
           id="email"
           type="email"
           value={formData.email}
           onChange={(e) => handleChange('email', e.target.value)}
-          className={`w-full border rounded-lg px-3 py-2 ${
+          className={`w-full border rounded-xl px-3 py-2.5 ${
             errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
-          } dark:bg-gray-800 dark:text-white`}
-          placeholder="ornek@mail.com"
+          } dark:bg-slate-800 dark:text-white`}
+          placeholder="example@mail.com"
         />
         {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
       </div>
 
       <div>
         <label htmlFor="subject" className="block text-sm font-medium mb-1">
-          Konu
+          {locale === 'tr' ? 'Konu' : 'Subject'}
         </label>
         <select
           id="subject"
           value={formData.subject}
           onChange={(e) => handleChange('subject', e.target.value)}
-          className={`w-full border rounded-lg px-3 py-2 ${
+          className={`w-full border rounded-xl px-3 py-2.5 ${
             errors.subject ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
-          } dark:bg-gray-800 dark:text-white`}
+          } dark:bg-slate-800 dark:text-white`}
         >
-          <option value="">Konu seçiniz...</option>
-          <option value="genel">Genel</option>
-          <option value="destek">Teknik Destek</option>
-          <option value="oneri">Öneri</option>
-          <option value="isbirligi">İş Birliği</option>
+          <option value="">{locale === 'tr' ? 'Konu seçiniz...' : 'Select subject...'}</option>
+          <option value="genel">{locale === 'tr' ? 'Genel' : 'General'}</option>
+          <option value="destek">{locale === 'tr' ? 'Teknik Destek' : 'Technical Support'}</option>
+          <option value="oneri">{locale === 'tr' ? 'Öneri' : 'Suggestion'}</option>
+          <option value="isbirligi">{locale === 'tr' ? 'İş Birliği' : 'Collaboration'}</option>
         </select>
         {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
       </div>
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-1">
-          Mesaj
+          {locale === 'tr' ? 'Mesaj' : 'Message'}
         </label>
         <textarea
           id="message"
           rows={5}
           value={formData.message}
           onChange={(e) => handleChange('message', e.target.value)}
-          className={`w-full border rounded-lg px-3 py-2 resize-y ${
+          className={`w-full border rounded-xl px-3 py-2.5 resize-y ${
             errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
-          } dark:bg-gray-800 dark:text-white`}
-          placeholder="Mesajınızı yazınız..."
+          } dark:bg-slate-800 dark:text-white`}
+          placeholder={locale === 'tr' ? 'Mesajınızı yazınız...' : 'Write your message...'}
         />
         {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
       </div>
@@ -182,9 +186,9 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full md:w-auto px-6 bg-violet-600 text-white py-2.5 rounded-xl font-medium hover:bg-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {isSubmitting ? 'Gönderiliyor...' : 'Gönder'}
+        {isSubmitting ? (locale === 'tr' ? 'Gönderiliyor...' : 'Sending...') : locale === 'tr' ? 'Gönder' : 'Send'}
       </button>
     </form>
   )
