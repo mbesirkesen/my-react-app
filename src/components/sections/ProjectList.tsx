@@ -1,125 +1,58 @@
-import { useEffect, useMemo, useState } from 'react'
-import type { Category, Project, SortField, SortOrder } from '../../types/project'
-import { fetchProjects } from '../../services/projectService'
-import { applyFilters } from '../../utils/projectHelpers'
-import ProjectFilter from '../forms/ProjectFilter'
+import { motion } from 'motion/react'
+import { Link } from 'react-router-dom'
+import { projects } from '../../data/projects'
+import { useLocale } from '../../i18n/LocaleContext'
 
 export default function ProjectList() {
-  const [projects, setProjects] = useState<Project[]>([])
-  const [search, setSearch] = useState('')
-  const [category, setCategory] = useState<Category | 'all'>('all')
-  const [sortField, setSortField] = useState<SortField>('year')
-  const [sortOrder, setSortOrder] = useState<SortOrder>('desc')
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    async function load() {
-      try {
-        setLoading(true)
-        setError(null)
-        const data = await fetchProjects()
-        setProjects(data)
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Bilinmeyen hata oluştu')
-      } finally {
-        setLoading(false)
-      }
-    }
-    load()
-  }, [])
-
-  const filtered = useMemo(
-    () => applyFilters(projects, search, category, sortField, sortOrder),
-    [projects, search, category, sortField, sortOrder],
-  )
-
+  const { locale } = useLocale()
   return (
     <section id="projects" className="py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Projelerim</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-8">Üzerinde çalıştığım projeler</p>
-
-        {error && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
-            <p className="text-red-800">{error}</p>
-            <button
-              onClick={() => window.location.reload()}
-              className="text-sm text-red-600 underline mt-2"
-            >
-              Tekrar dene
-            </button>
+      <div className="max-w-6xl mx-auto space-y-6">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+              {locale === 'tr' ? 'Projeler' : 'Projects'}
+            </h2>
+            <p className="text-slate-600 dark:text-slate-300">
+              {locale === 'tr'
+                ? 'CV ve gerçek deneyimimden seçilmiş güncel ürün, AI ve IoT çalışmaları.'
+                : 'Selected real-world product, AI, and IoT work based on my CV and professional experience.'}
+            </p>
           </div>
-        )}
+          <Link to="/projects" className="text-cyan-600 hover:text-cyan-700 font-medium text-sm">
+            {locale === 'tr' ? 'Tüm projeleri görüntüle' : 'View all projects'} →
+          </Link>
+        </div>
 
-        {!loading && !error && (
-          <ProjectFilter
-            search={search}
-            onSearchChange={setSearch}
-            category={category}
-            onCategoryChange={setCategory}
-            sortField={sortField}
-            onSortFieldChange={setSortField}
-            sortOrder={sortOrder}
-            onSortOrderChange={setSortOrder}
-            resultCount={filtered.length}
-            totalCount={projects.length}
-          />
-        )}
-
-        {loading && (
-          <div className="flex justify-center py-12">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600" />
-          </div>
-        )}
-
-        {!loading && !error && filtered.length === 0 && (
-          <p className="text-center text-gray-500 py-12">Eşleşen proje bulunamadı.</p>
-        )}
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((project) => (
-            <article
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {projects.map((project, idx) => (
+            <motion.article
               key={project.id}
-              className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow"
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.35, delay: idx * 0.08 }}
+              className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/70 overflow-hidden hover:shadow-xl transition"
             >
-              <div className="h-48 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center">
-                {project.image ? (
-                  <img
-                    src={project.image}
-                    alt={`${project.title} görseli`}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <span className="text-4xl opacity-50">&#128187;</span>
-                )}
+              <div className="h-48 bg-gradient-to-br from-slate-200 to-slate-100 dark:from-slate-800 dark:to-slate-700">
+                <img src={project.image} alt={project.title[locale]} className="w-full h-full object-cover" />
               </div>
-
-              <div className="p-4">
-                <div className="flex items-start justify-between mb-2 gap-3">
-                  <h3 className="font-bold text-gray-900 dark:text-white">{project.title}</h3>
+              <div className="p-5 space-y-3">
+                <div className="flex items-start justify-between gap-2">
+                  <h3 className="font-semibold text-lg">{project.title[locale]}</h3>
                   {project.featured && (
-                    <span className="bg-yellow-100 text-yellow-800 text-xs px-2 py-0.5 rounded-full">
-                      Öne Çıkan
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">
+                      {locale === 'tr' ? 'Öne Çıkan' : 'Featured'}
                     </span>
                   )}
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">{project.description}</p>
-                <div className="flex flex-wrap gap-1 mb-3">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-0.5 rounded-full"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <p className="text-xs text-gray-400">
-                  {project.year} · {project.category}
-                </p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">{project.subtitle[locale]}</p>
+                <p className="text-sm text-slate-600 dark:text-slate-300 line-clamp-3">{project.description[locale]}</p>
+                <Link to={`/projects/${project.slug}`} className="inline-block text-sm font-medium text-cyan-600">
+                  {locale === 'tr' ? 'Detayı İncele' : 'See Details'} →
+                </Link>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
