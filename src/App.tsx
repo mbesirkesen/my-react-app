@@ -1,25 +1,29 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
-import Hero from './components/sections/Hero'
-import About from './components/sections/About'
-import Skills from './components/sections/Skills'
-import ProjectList from './components/sections/ProjectList'
-import ContactSection from './components/sections/ContactSection'
+import Home from './pages/Home'
+import ProjectDetail from './pages/ProjectDetail'
+import Projects from './pages/Projects'
 import './App.css'
+import { LocaleProvider } from './i18n/LocaleContext'
 
 function App() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <ProjectList />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <LocaleProvider>
+      <BrowserRouter>
+        <div className="min-h-screen text-slate-900 dark:text-white">
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/:slug" element={<ProjectDetail />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </LocaleProvider>
   )
 }
 
