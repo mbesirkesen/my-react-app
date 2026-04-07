@@ -10,12 +10,12 @@ export const projects: Project[] = [
       en: 'AI dream analysis app on Google Play (Backend & AI)',
     },
     description: {
-      tr: 'Projede Backend & AI geliştirici olarak FastAPI asenkron mimarisi, Google Play IAP doğrulama, abonelik yönetimi ve veri güvenliği katmanları üzerinde çalıştım.',
-      en: 'I worked as Backend & AI developer, building FastAPI async architecture, Google Play IAP validation, subscription flows, and data security layers.',
+      tr: '2KAI ekibinde Dreamind projesinin backend ve AI tarafını geliştirdim; ürünü canlıya alma, yayın operasyonu ve Google Play süreçleriyle aktif olarak ilgilendim.',
+      en: 'Within the 2KAI team, I developed Dreamind’s backend and AI systems, and actively handled production release operations and Google Play processes.',
     },
     role: {
-      tr: 'Backend & AI Engineer',
-      en: 'Backend & AI Engineer',
+      tr: '2KAI Team - Backend & AI Engineer',
+      en: '2KAI Team - Backend & AI Engineer',
     },
     problem: {
       tr: 'Kullanıcıların rüyalarını bağlamsal olarak yorumlayan, güvenli ve ölçeklenebilir bir mobil backend ihtiyacı vardı.',
@@ -26,8 +26,8 @@ export const projects: Project[] = [
       en: ['React Native client', 'Asynchronous FastAPI API layer', 'Supabase Auth + RLS', 'Neon PostgreSQL data model'],
     },
     outcomes: {
-      tr: ['Google Play yayını aktif', 'IAP doğrulama ve abonelik akışı canlı', 'Prompt çıktıları yapılandırılmış JSON formatına dönüştürüldü'],
-      en: ['Live on Google Play', 'IAP validation and subscription flow in production', 'Prompt outputs transformed into structured JSON'],
+      tr: ['Google Play yayınına alma süreçleri yönetildi', 'IAP doğrulama ve abonelik akışı canlıya alındı', 'Prompt çıktıları yapılandırılmış JSON formatına dönüştürüldü'],
+      en: ['Managed Google Play release processes', 'IAP validation and subscription flow went live', 'Prompt outputs transformed into structured JSON'],
     },
     highlights: {
       tr: [
@@ -84,8 +84,9 @@ export const projects: Project[] = [
     year: 2025,
     category: 'iot',
     featured: true,
-    image: '/projeler/kozalak.png',
-    links: { source: 'https://github.com/mbesirkesen' },
+    image: '/projeler/kozalak-1.png',
+    gallery: ['/projeler/kozalak-2.png', '/projeler/kozalak-3.png', '/projeler/kozalak-4.png'],
+    links: {},
   },
   {
     id: 3,

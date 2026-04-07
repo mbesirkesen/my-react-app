@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { projects } from '../data/projects'
 import { useLocale } from '../i18n/LocaleContext'
@@ -6,10 +6,22 @@ import { useMemo, useState } from 'react'
 
 export default function ProjectDetail() {
   const { locale } = useLocale()
+  const [searchParams] = useSearchParams()
   const { slug } = useParams<{ slug: string }>()
   const project = projects.find((p) => p.slug === slug)
   const images = useMemo(() => (project ? [project.image, ...(project.gallery ?? [])] : []), [project])
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const showCelebration = searchParams.get('celebrate') === '1'
+  const confetti = useMemo(
+    () =>
+      Array.from({ length: 24 }).map((_, i) => ({
+        id: i,
+        left: `${(i * 4.2) % 100}%`,
+        duration: 2.4 + (i % 5) * 0.25,
+        delay: (i % 6) * 0.08,
+      })),
+    [],
+  )
 
   if (!project) {
     return (
@@ -34,8 +46,22 @@ export default function ProjectDetail() {
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35 }}
-        className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white/80 shadow-sm dark:border-slate-700 dark:bg-slate-900/70"
+        className="relative mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white/80 shadow-sm dark:border-slate-700 dark:bg-slate-900/70"
       >
+        {showCelebration && (
+          <div className="pointer-events-none absolute inset-0 z-20">
+            {confetti.map((piece) => (
+              <motion.span
+                key={piece.id}
+                className="absolute top-0 w-1.5 h-3 rounded-sm bg-amber-400"
+                style={{ left: piece.left }}
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 420, opacity: [0, 1, 1, 0], rotate: [0, 90, 180] }}
+                transition={{ duration: piece.duration, delay: piece.delay, ease: 'easeInOut' }}
+              />
+            ))}
+          </div>
+        )}
         <div className="w-full bg-slate-100 dark:bg-slate-800/60 px-2 md:px-4 py-2">
           <div className="w-full aspect-[16/10] md:aspect-[16/8] max-h-[72vh]">
             <img
