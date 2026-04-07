@@ -1,13 +1,13 @@
-import type { Category, Project, SortField, SortOrder } from '../types/project'
+import type { Category, Locale, Project, SortField, SortOrder } from '../types/project'
 
-export function filterBySearch(projects: Project[], query: string): Project[] {
+export function filterBySearch(projects: Project[], query: string, locale: Locale): Project[] {
   const q = query.trim()
   if (!q) return projects
 
   const lower = q.toLowerCase()
   return projects.filter((p) => {
-    const inTitle = p.title.toLowerCase().includes(lower)
-    const inDesc = p.description.toLowerCase().includes(lower)
+    const inTitle = p.title[locale].toLowerCase().includes(lower)
+    const inDesc = p.description[locale].toLowerCase().includes(lower)
     const inTech = p.tech.some((t) => t.toLowerCase().includes(lower))
     return inTitle || inDesc || inTech
   })
@@ -25,10 +25,11 @@ export function sortProjects(
   projects: Project[],
   field: SortField,
   order: SortOrder,
+  locale: Locale,
 ): Project[] {
   const sorted = [...projects].sort((a, b) => {
     if (field === 'year') return a.year - b.year
-    return a.title.localeCompare(b.title, 'tr')
+    return a.title[locale].localeCompare(b.title[locale], locale)
   })
 
   return order === 'desc' ? sorted.reverse() : sorted
@@ -40,10 +41,11 @@ export function applyFilters(
   category: Category | 'all',
   sortField: SortField,
   sortOrder: SortOrder,
+  locale: Locale,
 ): Project[] {
-  let result = filterBySearch(projects, search)
+  let result = filterBySearch(projects, search, locale)
   result = filterByCategory(result, category)
-  result = sortProjects(result, sortField, sortOrder)
+  result = sortProjects(result, sortField, sortOrder, locale)
   return result
 }
 
