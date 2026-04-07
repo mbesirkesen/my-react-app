@@ -10,6 +10,8 @@ export default function Header() {
   const navLinks = [
     { to: '/', label: locale === 'tr' ? 'Ana Sayfa' : 'Home' },
     { to: '/projects', label: locale === 'tr' ? 'Projeler' : 'Projects' },
+    { to: '/experience', label: locale === 'tr' ? 'Deneyim' : 'Experience' },
+    { to: '/awards', label: locale === 'tr' ? 'Ödüller' : 'Awards' },
   ]
 
   const toggleTheme = () => {
