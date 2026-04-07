@@ -84,8 +84,9 @@ export const projects: Project[] = [
     year: 2025,
     category: 'iot',
     featured: true,
-    image: '/projeler/kozalak.png',
-    links: { source: 'https://github.com/mbesirkesen' },
+    image: '/projeler/kozalak-1.png',
+    gallery: ['/projeler/kozalak-2.png', '/projeler/kozalak-3.png', '/projeler/kozalak-4.png'],
+    links: {},
   },
   {
     id: 3,

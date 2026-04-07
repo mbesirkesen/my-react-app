@@ -23,11 +23,13 @@ const initialFormData: ContactFormData = {
 }
 
 export default function ContactForm() {
+  const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined
   const { locale } = useLocale()
   const [formData, setFormData] = useState<ContactFormData>(initialFormData)
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   function validate(data: ContactFormData): FormErrors {
     const newErrors: FormErrors = {}
@@ -73,6 +75,7 @@ export default function ContactForm() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
+    setSubmitError(null)
 
     const newErrors = validate(formData)
     if (Object.keys(newErrors).length > 0) {
@@ -80,14 +83,43 @@ export default function ContactForm() {
       return
     }
 
+    if (!WEB3FORMS_KEY) {
+      setSubmitError(
+        locale === 'tr'
+          ? 'Form servisi ayarlı değil. Lütfen VITE_WEB3FORMS_KEY ekleyin.'
+          : 'Form service is not configured. Please add VITE_WEB3FORMS_KEY.',
+      )
+      return
+    }
+
     setIsSubmitting(true)
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      console.log('Form verisi:', formData)
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject:
+            locale === 'tr'
+              ? `Portfolyo Iletisim Formu - ${formData.subject}`
+              : `Portfolio Contact Form - ${formData.subject}`,
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        }),
+      })
+
+      const data = (await response.json()) as { success?: boolean; message?: string }
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'Request failed')
+      }
+
       setSubmitSuccess(true)
       setFormData(initialFormData)
     } catch {
-      alert(locale === 'tr' ? 'Gönderim başarısız. Tekrar deneyin.' : 'Submission failed. Please try again.')
+      setSubmitError(
+        locale === 'tr' ? 'Gonderim basarisiz. Lutfen tekrar deneyin.' : 'Submission failed. Please try again.',
+      )
     } finally {
       setIsSubmitting(false)
     }
@@ -111,6 +143,11 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 max-w-2xl" noValidate>
+      {submitError && (
+        <div className="rounded-lg border border-red-300 bg-red-50 px-3 py-2 text-sm text-red-700">
+          {submitError}
+        </div>
+      )}
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-1">
           {locale === 'tr' ? 'Ad Soyad' : 'Full Name'}

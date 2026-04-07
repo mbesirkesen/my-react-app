@@ -52,6 +52,25 @@ export default function Hero() {
               {locale === 'tr' ? 'Benimle İletişime Geç' : 'Get In Touch'} <Download size={16} />
             </a>
           </div>
+
+          <div className="flex flex-wrap gap-2">
+            <a
+              href="https://linkedin.com/in/muhammed-besir-kesen"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-slate-300 dark:border-slate-700 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/mbesirkesen"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-slate-300 dark:border-slate-700 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+            >
+              GitHub
+            </a>
+          </div>
         </motion.div>
 
         <motion.div
