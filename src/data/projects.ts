@@ -124,8 +124,14 @@ export const projects: Project[] = [
     year: 2026,
     category: 'ai',
     featured: true,
-    image: '/projeler/recipe-chatbot.png',
-    links: { source: 'https://github.com/mbesirkesen/AgesaCity-Frontend' },
+    image: '/projeler/recipe-chatbot-1.png',
+    gallery: [
+      '/projeler/recipe-chatbot-2.png',
+      '/projeler/recipe-chatbot-3.png',
+      '/projeler/recipe-chatbot-4.png',
+      '/projeler/recipe-chatbot-5.png',
+    ],
+    links: { source: 'https://github.com/mbesirkesen/chatbot-backend' },
   },
   {
     id: 4,
@@ -204,6 +210,6 @@ export const projects: Project[] = [
     category: 'ai',
     featured: false,
     image: '/projeler/ai-weather.png',
-    links: { source: 'https://github.com/mbesirkesen' },
+    links: { source: 'https://github.com/mbesirkesen/ai-weather-assistant' },
   },
 ]
