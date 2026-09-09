@@ -1,24 +1,12 @@
 import { motion } from 'motion/react'
 import { useLocale } from '../../i18n/LocaleContext'
 import { Link } from 'react-router-dom'
-
-const awards = [
-  {
-    title: { tr: 'CodeNight 1.lik (T3 Vakfı)', en: 'CodeNight 1st Place (T3 Foundation)' },
-    detail: { tr: 'AI Recipe Chatbot - Takım Kaptanı & Backend', en: 'AI Recipe Chatbot - Team Captain & Backend' },
-  },
-  {
-    title: { tr: 'CodeNight 1.lik (AgeSA)', en: 'CodeNight 1st Place (AgeSA)' },
-    detail: { tr: 'AgeSA City - Frontend Developer', en: 'AgeSA City - Frontend Developer' },
-  },
-  {
-    title: { tr: 'TEKNOFEST Robolig Türkiye Finali', en: 'TEKNOFEST Robolig Turkey Finals' },
-    detail: { tr: 'KUHEYLAN - Haberleşme Geliştiricisi', en: 'KUHEYLAN - Communication Systems Developer' },
-  },
-]
+import { awards } from '../../data/awards'
 
 export default function AwardsSection() {
   const { locale } = useLocale()
+  const preview = awards.filter((a) => a.rank === 'gold' || a.rank === 'silver' || a.rank === 'finalist').slice(0, 3)
+
   return (
     <section id="awards" className="py-14 px-4">
       <div className="max-w-6xl mx-auto space-y-6">
@@ -27,7 +15,7 @@ export default function AwardsSection() {
           {locale === 'tr' ? 'Tüm ödülleri aç' : 'Open full awards page'} →
         </Link>
         <div className="grid md:grid-cols-3 gap-4">
-          {awards.map((item, idx) => (
+          {preview.map((item, idx) => (
             <motion.article
               key={item.title.en}
               initial={{ opacity: 0, y: 14 }}
@@ -45,4 +33,3 @@ export default function AwardsSection() {
     </section>
   )
 }
-
