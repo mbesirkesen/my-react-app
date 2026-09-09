@@ -1,40 +1,12 @@
 import { motion } from 'motion/react'
 import { useLocale } from '../../i18n/LocaleContext'
 import { Link } from 'react-router-dom'
-
-const items = [
-  {
-    period: { tr: 'Ocak 2026 - Günümüz', en: 'Jan 2026 - Present' },
-    title: { tr: 'DDYO - Yarı Zamanlı Mobil Geliştirici', en: 'DDYO - Part-time Mobile Developer' },
-    desc: {
-      tr: 'React Native ile üniversite ölçeğinde kurumsal mobil uygulama süreçlerinde aktif geliştirme.',
-      en: 'Active development of institutional mobile apps with React Native in university-wide digital transformation.',
-    },
-    status: { tr: 'Devam Ediyor', en: 'Ongoing' },
-  },
-  {
-    period: { tr: 'Eylül 2025 - Günümüz', en: 'Sep 2025 - Present' },
-    title: { tr: 'HSD Fırat - Core Team', en: 'HSD Firat - Core Team Member' },
-    desc: {
-      tr: 'Etkinlik, sponsorluk ve teknik topluluk büyütme operasyonlarında aktif rol.',
-      en: 'Active role in event operations, sponsorships, and technical community growth.',
-    },
-    status: { tr: 'Devam Ediyor', en: 'Ongoing' },
-  },
-  {
-    period: { tr: 'Aralık 2025 - Mart 2026', en: 'Dec 2025 - Mar 2026' },
-    title: { tr: 'Dreamind - Backend & AI Engineer', en: 'Dreamind - Backend & AI Engineer' },
-    desc: {
-      tr: 'FastAPI asenkron mimari, IAP doğrulama, abonelik akışı ve veri güvenliği katmanlarının geliştirilmesi.',
-      en: 'Built FastAPI async architecture, IAP validation, subscription flow, and data security layers.',
-    },
-    status: { tr: 'Tamamlandı', en: 'Completed' },
-    progress: 100,
-  },
-]
+import { experienceItems } from '../../data/experience'
 
 export default function ExperienceTimeline() {
   const { locale } = useLocale()
+  const preview = experienceItems.slice(0, 4)
+
   return (
     <section id="experience" className="py-14 px-4">
       <div className="max-w-6xl mx-auto space-y-6">
@@ -44,7 +16,7 @@ export default function ExperienceTimeline() {
         </Link>
         <div className="relative pl-5 md:pl-7 space-y-4">
           <div className="absolute left-2.5 md:left-3 top-2 bottom-2 w-px bg-slate-300 dark:bg-slate-700" />
-          {items.map((item, idx) => (
+          {preview.map((item, idx) => (
             <motion.article
               key={item.title.en}
               initial={{ opacity: 0, y: 16 }}
@@ -67,10 +39,13 @@ export default function ExperienceTimeline() {
                 >
                   {item.status[locale]}
                 </span>
-                {item.status.en !== 'Ongoing' && (
+                {item.status.en !== 'Ongoing' && item.progress != null && (
                   <div className="mt-2">
                     <div className="h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
-                      <div className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-emerald-500" style={{ width: `${item.progress}%` }} />
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-emerald-500"
+                        style={{ width: `${item.progress}%` }}
+                      />
                     </div>
                     <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">
                       {locale === 'tr' ? 'Tamamlanma' : 'Completion'}: {item.progress}%
@@ -85,4 +60,3 @@ export default function ExperienceTimeline() {
     </section>
   )
 }
-
