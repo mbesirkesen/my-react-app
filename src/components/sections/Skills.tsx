@@ -1,11 +1,6 @@
 import { motion } from 'motion/react'
 import { useLocale } from '../../i18n/LocaleContext'
-
-const skillGroups = [
-  { title: 'Mobile', items: ['React Native (DDYO)'] },
-  { title: 'Backend', items: ['Python', 'FastAPI', 'LangChain', 'PostgreSQL'] },
-  { title: 'IoT / Embedded', items: ['Arduino', 'ESP8266', 'MQTT', 'ESP-NOW'] },
-]
+import { skillGroups } from '../../data/skills'
 
 export default function Skills() {
   const { locale } = useLocale()
@@ -15,17 +10,17 @@ export default function Skills() {
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
           {locale === 'tr' ? 'Teknik Yetenekler' : 'Technical Skills'}
         </h2>
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {skillGroups.map((group, idx) => (
             <motion.div
-              key={group.title}
+              key={group.title.en}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: idx * 0.08 }}
               className="rounded-xl border border-slate-200 dark:border-slate-700 p-4 bg-white/70 dark:bg-slate-900/60"
             >
-              <h3 className="font-semibold mb-2">{group.title}</h3>
+              <h3 className="font-semibold mb-2">{group.title[locale]}</h3>
               <div className="flex flex-wrap gap-2">
                 {group.items.map((item) => (
                   <span
@@ -43,4 +38,3 @@ export default function Skills() {
     </section>
   )
 }
-

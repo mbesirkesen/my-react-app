@@ -17,21 +17,20 @@ export default function About() {
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
           {locale === 'tr'
-            ? 'Fırat Üniversitesi Yazılım Mühendisliği 3. sınıf öğrencisiyim. DDYO bünyesinde yarı zamanlı Mobil Geliştirici olarak React Native projeleri geliştiriyor; kullanıcı deneyimi, performans ve sürdürülebilir kod mimarisi odağında üretim süreçlerine katkı sağlıyorum.'
-            : 'I am a 3rd-year Software Engineering student at Firat University. At DDYO, I work as a part-time Mobile Developer building React Native applications and contributing to production workflows with a focus on user experience, performance, and sustainable code architecture.'}
+            ? 'Fırat Üniversitesi Yazılım Mühendisliği öğrencisiyim (2023–2027) ve HSD Fırat Core Team üyesiyim. Mobil uygulama geliştirme, backend ve yapay zeka katmanlarında uçtan uca ürünler üretmeye odaklanıyorum.'
+            : 'I am a Software Engineering student at Firat University (2023–2027) and a Core Team member at HSD Firat. I focus on building end-to-end products across mobile, backend, and AI.'}
         </p>
         <p className="mt-3 text-slate-600 dark:text-slate-300 leading-relaxed">
           {locale === 'tr'
-            ? 'T3 Vakfı ve AgeSA CodeNight birincilikleri, kritik zaman baskısında takım koordinasyonu, teknik karar alma ve ürün odaklı geliştirme yetkinliklerimi güçlendirdi. Agentic AI, Fintech API ve IoT tarafında yalnızca prototip değil, canlıya alınabilir ve ölçeklenebilir çözümler üretmeyi hedefliyorum.'
-            : 'Winning first place in T3 Foundation and AgeSA CodeNight strengthened my ability to coordinate teams, make technical decisions under pressure, and deliver product-oriented outcomes. In Agentic AI, Fintech APIs, and IoT, my goal is to build not only prototypes but also scalable, production-ready solutions.'}
+            ? 'DDYO’da React Native ile kurumsal mobil uygulamalar geliştirdim. AgeSA’da yaz stajımda saha ekiplerinin karar süreçlerini destekleyen PusulSA yapay zeka projesinde yer aldım. Dreamind’de 2KAI ekibiyle Backend & AI tarafını üstlenerek canlıya alma ve Google Play yayın süreçlerinde aktif rol aldım.'
+            : 'At DDYO, I built institutional mobile apps with React Native. During my AgeSA summer internship, I contributed to PusulSA, an AI project that supports field teams in decision-making. On Dreamind, I owned Backend & AI with the 2KAI team and took an active role in production release and Google Play publishing.'}
         </p>
         <p className="mt-3 text-slate-600 dark:text-slate-300 leading-relaxed">
           {locale === 'tr'
-            ? 'Dreamind projesinde 2KAI ekibiyle Backend & AI tarafını geliştirerek canlıya alma ve Google Play yayın süreçlerinde aktif sorumluluk aldım. Uzun vadeli hedefim; mobil, backend ve yapay zeka katmanlarını birlikte tasarlayarak gerçek hayata dokunan uçtan uca dijital ürünler geliştirmek.'
-            : 'In the Dreamind project, I worked with the 2KAI team on Backend & AI and took active responsibility in production release and Google Play publishing processes. My long-term goal is to design mobile, backend, and AI layers together to build end-to-end digital products that create real-world impact.'}
+            ? 'T3 Vakfı ve AgeSA CodeNight birincilikleri, zaman baskısı altında takım yönetme ve ürün odaklı teslim etme becerilerimi pekiştirdi. Hedefim; Agentic AI, fintech ve IoT alanlarında yalnızca prototip değil, ölçeklenebilir ve gerçek hayata dokunan çözümler üretmek.'
+            : 'First-place finishes at T3 Foundation and AgeSA CodeNight sharpened my ability to lead under pressure and ship product-focused work. My goal is to build scalable, real-world solutions in Agentic AI, fintech, and IoT — not just prototypes.'}
         </p>
       </motion.div>
     </section>
   )
 }
-
