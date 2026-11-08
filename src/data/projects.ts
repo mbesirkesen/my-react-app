@@ -2,6 +2,91 @@ import type { Project } from '../types/project'
 
 export const projects: Project[] = [
   {
+    id: 8,
+    slug: 'parkceyiz',
+    title: { tr: 'Parkçeyiz', en: 'Parkceyiz' },
+    subtitle: {
+      tr: 'Uçtan uca e-ticaret / kurumsal platform — canlıda',
+      en: 'End-to-end e-commerce / enterprise platform — live',
+    },
+    description: {
+      tr: 'Python API, TypeScript admin paneli ve JavaScript web arayüzüyle uçtan uca mimarisini tasarlayıp geliştirdiğim e-ticaret/kurumsal platform. Canlı: parkceyiz.com',
+      en: 'An e-commerce / enterprise platform whose end-to-end architecture I designed and built with a Python API, TypeScript admin panel, and JavaScript web UI. Live at parkceyiz.com',
+    },
+    role: {
+      tr: 'Full-Stack Geliştirici',
+      en: 'Full-Stack Developer',
+    },
+    problem: {
+      tr: 'İşletmenin ürün, sipariş ve yönetim süreçlerini tek bir web platformunda toplama ihtiyacı.',
+      en: 'Need to unify product, order, and management workflows into a single web platform.',
+    },
+    architecture: {
+      tr: ['Python API katmanı', 'TypeScript admin paneli', 'JavaScript web arayüzü'],
+      en: ['Python API layer', 'TypeScript admin panel', 'JavaScript web UI'],
+    },
+    outcomes: {
+      tr: ['Canlı prodüksiyon yayını (parkceyiz.com)', 'Uçtan uca full-stack teslim'],
+      en: ['Live production launch (parkceyiz.com)', 'End-to-end full-stack delivery'],
+    },
+    highlights: {
+      tr: ['API + admin + web üç katmanlı mimari', 'Kurumsal e-ticaret akışları'],
+      en: ['Three-layer API + admin + web architecture', 'Enterprise commerce flows'],
+    },
+    tech: ['Python', 'TypeScript', 'JavaScript', 'Full-Stack'],
+    year: 2026,
+    category: 'fullstack',
+    featured: true,
+    image: '/projeler/parkceyiz-4.jpg',
+    gallery: [
+      '/projeler/parkceyiz-1.png',
+      '/projeler/parkceyiz-2.png',
+      '/projeler/parkceyiz-3.png',
+      '/projeler/parkceyiz-5.png',
+      '/projeler/parkceyiz-6.png',
+    ],
+    links: { demo: 'https://parkceyiz.com' },
+  },
+  {
+    id: 9,
+    slug: 'revixa',
+    title: { tr: 'REVIXA', en: 'REVIXA' },
+    subtitle: {
+      tr: 'Çok kanallı müşteri zekâsı SaaS — kurucu ortak',
+      en: 'Multi-channel customer intelligence SaaS — co-founder',
+    },
+    description: {
+      tr: 'Müşteri geri bildirimlerini CSAT analitiğine ve Jira görevlerine dönüştüren FastAPI, SQLite, SQLAlchemy ve Gemini API tabanlı SaaS platformu. Kurucu ortak & geliştirici.',
+      en: 'A SaaS platform that turns customer feedback into CSAT analytics and Jira tasks — built with FastAPI, SQLite, SQLAlchemy, and the Gemini API. Co-founder & developer.',
+    },
+    role: {
+      tr: 'Kurucu Ortak & Geliştirici',
+      en: 'Co-Founder & Developer',
+    },
+    problem: {
+      tr: 'Dağınık müşteri geri bildirimlerini ölçülebilir CSAT sinyallerine ve aksiyonlanabilir Jira işlerine çevirme ihtiyacı.',
+      en: 'Need to convert scattered customer feedback into measurable CSAT signals and actionable Jira work items.',
+    },
+    architecture: {
+      tr: ['FastAPI backend', 'SQLite + SQLAlchemy', 'Gemini API analitik katmanı', 'Jira görev entegrasyonu'],
+      en: ['FastAPI backend', 'SQLite + SQLAlchemy', 'Gemini API analytics layer', 'Jira task integration'],
+    },
+    outcomes: {
+      tr: ['CSAT odaklı geri bildirim pipeline’ı', 'Jira’ya otomatik görev üretimi', 'Kurucu ortak olarak ürün geliştirme'],
+      en: ['CSAT-focused feedback pipeline', 'Automated Jira task creation', 'Product development as co-founder'],
+    },
+    highlights: {
+      tr: ['Gemini ile geri bildirim analizi', 'SaaS ürünleşme odaklı mimari'],
+      en: ['Feedback analysis with Gemini', 'SaaS productization-focused architecture'],
+    },
+    tech: ['FastAPI', 'SQLite', 'SQLAlchemy', 'Gemini', 'SaaS'],
+    year: 2026,
+    category: 'ai',
+    featured: true,
+    image: '/projeler/revixa.svg',
+    links: {},
+  },
+  {
     id: 7,
     slug: 'gadanalam',
     title: { tr: 'Gadanalam', en: 'Gadanalam' },

@@ -17,19 +17,49 @@ export default function About() {
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed">
           {locale === 'tr'
-            ? 'Fırat Üniversitesi Yazılım Mühendisliği öğrencisiyim (2023–2027) ve HSD Fırat Core Team üyesiyim. Mobil uygulama geliştirme, backend ve yapay zeka katmanlarında uçtan uca ürünler üretmeye odaklanıyorum.'
-            : 'I am a Software Engineering student at Firat University (2023–2027) and a Core Team member at HSD Firat. I focus on building end-to-end products across mobile, backend, and AI.'}
+            ? 'Fırat Üniversitesi Yazılım Mühendisliği 4. sınıf öğrencisiyim (2027 mezuniyet). Agentic AI, RAG mimarileri, fintech ve uçtan uca prodüksiyon projeleri geliştiriyorum; HSD Fırat Core Team üyesiyim.'
+            : 'I am a 4th-year Software Engineering student at Firat University (class of 2027). I build Agentic AI, RAG architectures, fintech, and end-to-end production projects, and I am a Core Team member at HSD Firat.'}
         </p>
         <p className="mt-3 text-slate-600 dark:text-slate-300 leading-relaxed">
           {locale === 'tr'
-            ? 'DDYO’da React Native ile kurumsal mobil uygulamalar geliştirdim. AgeSA’da yaz stajımda saha ekiplerinin karar süreçlerini destekleyen PusulSA yapay zeka projesinde yer aldım. Dreamind’de 2KAI ekibiyle Backend & AI tarafını üstlenerek canlıya alma ve Google Play yayın süreçlerinde aktif rol aldım.'
-            : 'At DDYO, I built institutional mobile apps with React Native. During my AgeSA summer internship, I contributed to PusulSA, an AI project that supports field teams in decision-making. On Dreamind, I owned Backend & AI with the 2KAI team and took an active role in production release and Google Play publishing.'}
+            ? 'Evatro’da kurumsal full-stack stajım devam ediyor. AgeSA’da PusulSA, Microsoft’ta Verifiable Local RAG, DDYO’da React Native kurumsal mobil uygulamalar ve DreaMind’de Backend & AI ile Google Play yayını deneyimledim. Parkçeyiz’i canlıya aldım; REVIXA’da kurucu ortak olarak CSAT SaaS geliştiriyorum.'
+            : 'My enterprise full-stack internship at Evatro is ongoing. I worked on PusulSA at AgeSA, Verifiable Local RAG at Microsoft, React Native institutional apps at DDYO, and Backend & AI for DreaMind on Google Play. I shipped Parkçeyiz live and co-founded REVIXA, a CSAT SaaS.'}
         </p>
         <p className="mt-3 text-slate-600 dark:text-slate-300 leading-relaxed">
           {locale === 'tr'
-            ? 'T3 Vakfı ve AgeSA CodeNight birincilikleri, zaman baskısı altında takım yönetme ve ürün odaklı teslim etme becerilerimi pekiştirdi. Hedefim; Agentic AI, fintech ve IoT alanlarında yalnızca prototip değil, ölçeklenebilir ve gerçek hayata dokunan çözümler üretmek.'
-            : 'First-place finishes at T3 Foundation and AgeSA CodeNight sharpened my ability to lead under pressure and ship product-focused work. My goal is to build scalable, real-world solutions in Agentic AI, fintech, and IoT — not just prototypes.'}
+            ? 'Hackathon birincilikleri, Türkiye–Tunus gençlik değişiminde ülkemizi temsil ve 20 öğrenciye akademik mentörlük yürüttüm. Medium’da “Lokal LLM ve RAG Mimarisi” üzerine yazıyorum.'
+            : 'Hackathon first places, representing Türkiye in the Türkiye–Tunisia youth exchange, and academic mentorship for 20 students. I write on Medium about local LLM and RAG architecture.'}
         </p>
+
+        <div className="mt-5 grid sm:grid-cols-3 gap-3">
+          <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white/60 dark:bg-slate-900/40 p-3">
+            <p className="text-xs text-slate-500 dark:text-slate-400">{locale === 'tr' ? 'Eğitim' : 'Education'}</p>
+            <p className="mt-1 text-sm text-slate-700 dark:text-slate-200">
+              {locale === 'tr'
+                ? 'Fırat Üni. Yazılım Müh. · Akademik mentörlük (20 öğrenci)'
+                : 'Firat Univ. Software Eng. · Academic mentorship (20 students)'}
+            </p>
+          </div>
+          <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white/60 dark:bg-slate-900/40 p-3">
+            <p className="text-xs text-slate-500 dark:text-slate-400">{locale === 'tr' ? 'Diller' : 'Languages'}</p>
+            <p className="mt-1 text-sm text-slate-700 dark:text-slate-200">
+              {locale === 'tr'
+                ? 'Türkçe (anadil) · Arapça (B1–C) · İngilizce (A2–B1)'
+                : 'Turkish (native) · Arabic (B1–C) · English (A2–B1)'}
+            </p>
+          </div>
+          <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white/60 dark:bg-slate-900/40 p-3">
+            <p className="text-xs text-slate-500 dark:text-slate-400">Medium</p>
+            <a
+              href="https://medium.com/@kesenmuhammedbesir"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-1 inline-flex text-sm text-cyan-600 font-medium"
+            >
+              {locale === 'tr' ? 'Lokal LLM ve RAG yazıları →' : 'Local LLM & RAG posts →'}
+            </a>
+          </div>
+        </div>
       </motion.div>
     </section>
   )

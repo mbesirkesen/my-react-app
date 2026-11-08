@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E1B4B"/>
+      <stop offset="0.55" stop-color="#312E81"/>
+      <stop offset="1" stop-color="#4F46E5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <circle cx="980" cy="120" r="180" fill="#A5B4FC" fill-opacity="0.14"/>
+  <rect x="90" y="120" width="1020" height="510" rx="28" fill="#FFFFFF" fill-opacity="0.08" stroke="#C7D2FE" stroke-opacity="0.35"/>
+  <text x="140" y="260" fill="#EEF2FF" font-family="Georgia, serif" font-size="64" font-weight="700">REVIXA</text>
+  <text x="140" y="330" fill="#C7D2FE" font-family="ui-sans-serif, system-ui, sans-serif" font-size="28">Multi-channel customer intelligence SaaS</text>
+  <text x="140" y="400" fill="#E0E7FF" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22">FastAPI · SQLite · SQLAlchemy · Gemini</text>
+  <text x="140" y="490" fill="#A5B4FC" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20">CSAT ’ Jira görevleri</text>
+</svg>

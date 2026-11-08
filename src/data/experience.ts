@@ -18,7 +18,7 @@ export type ExperienceItem = {
   roles?: ExperienceRole[]
 }
 
-/** Kaynak: LinkedIn Deneyim + gönderiler */
+/** Kaynak: LinkedIn Deneyim + CV */
 export const experienceItems: ExperienceItem[] = [
   {
     period: { tr: 'Eylül 2025 - Günümüz', en: 'Sep 2025 - Present' },
@@ -51,11 +51,22 @@ export const experienceItems: ExperienceItem[] = [
     ],
   },
   {
+    period: { tr: 'Temmuz 2026 - Günümüz', en: 'Jul 2026 - Present' },
+    title: { tr: 'Evatro Software - Full-Stack Intern', en: 'Evatro Software - Full-Stack Intern' },
+    desc: {
+      tr: 'Java JSF, RichFaces, SQL Server ve React ile kurumsal full-stack web ve veritabanı geliştirme süreçlerinde görev alıyorum (Uzaktan).',
+      en: 'Working on enterprise full-stack web and database development with Java JSF, RichFaces, SQL Server, and React (Remote).',
+    },
+    status: { tr: 'Devam Ediyor', en: 'Ongoing' },
+    logo: '/logos/evatro.png',
+    org: { tr: 'Evatro Software', en: 'Evatro Software' },
+  },
+  {
     period: { tr: 'Ağustos 2026 - Eylül 2026', en: 'Aug 2026 - Sep 2026' },
     title: { tr: 'AgeSA - Yazılım Mühendisliği Stajyeri', en: 'AgeSA - Software Engineering Intern' },
     desc: {
-      tr: 'Dijital Projeler ve Yenilikçi Çözümler / Analitik Grup Müdürlüğü altında 4 haftalık yaz stajı. PusulSA: saha ekipleri ve yöneticiler için karar destek AI aracı — Ollama + SSE, Fon 360 / next-best-action, text-to-SQL self-healing, Playwright E2E, RBAC (İstanbul · Ofiste).',
-      en: '4-week summer internship under Digital Projects and Innovative Solutions / Analytical Group Directorate. PusulSA: AI decision-support for field teams and managers — Ollama + SSE, Fon 360 / next-best-action, text-to-SQL self-healing, Playwright E2E, RBAC (Istanbul · On-site).',
+      tr: 'Dijital Projeler ve Yenilikçi Çözümler / Analitik Grup Müdürlüğü altında 4 haftalık yaz stajı. PusulSA: satış ekipleri için Agentic AI tabanlı çevrimdışı asistan — Ollama (14B), SSE token akışı, fon analizi, text-to-SQL self-healing (İstanbul · Ofiste).',
+      en: '4-week summer internship under Digital Projects and Innovative Solutions / Analytical Group Directorate. PusulSA: offline Agentic AI assistant for sales teams — Ollama (14B), SSE token streaming, fund analysis, text-to-SQL self-healing (Istanbul · On-site).',
     },
     status: { tr: 'Tamamlandı', en: 'Completed' },
     logo: '/logos/agesa.png',
@@ -66,8 +77,8 @@ export const experienceItems: ExperienceItem[] = [
     period: { tr: 'Haziran 2026 - Temmuz 2026', en: 'Jun 2026 - Jul 2026' },
     title: { tr: 'Microsoft - AI Engineer Intern', en: 'Microsoft - AI Engineer Intern' },
     desc: {
-      tr: 'Microsoft AI Innovators Yaz Stajı Programı. Verifiable Local RAG: veri gizliliği ve halüsinasyon azaltmaya odaklı, uçtan uca offline RAG mimarisi — Microsoft Foundry Local SDK ile tamamen yerel çalışır (İstanbul · Uzaktan).',
-      en: 'Microsoft AI Innovators Summer Internship Program. Verifiable Local RAG: end-to-end offline RAG architecture focused on data privacy and hallucination reduction — runs fully local with Microsoft Foundry Local SDK (Istanbul · Remote).',
+      tr: 'Microsoft AI Innovators Yaz Stajı. Verifiable Local RAG: Foundry Local SDK + Phi-4 ile cihaz üzerinde hibrit arama (BM25 + vektör + rerank), cümle düzeyinde kaynak doğrulama ve guardrail’ler (İstanbul · Uzaktan).',
+      en: 'Microsoft AI Innovators Summer Internship. Verifiable Local RAG: on-device hybrid search (BM25 + vectors + rerank) with Foundry Local SDK + Phi-4, sentence-level source verification, and guardrails (Istanbul · Remote).',
     },
     status: { tr: 'Tamamlandı', en: 'Completed' },
     logo: '/logos/microsoft.svg',
@@ -75,7 +86,7 @@ export const experienceItems: ExperienceItem[] = [
     progress: 100,
   },
   {
-    period: { tr: 'Ocak 2026 - Temmuz 2026', en: 'Jan 2026 - Jul 2026' },
+    period: { tr: 'Ocak 2026 - Haziran 2026', en: 'Jan 2026 - Jun 2026' },
     title: { tr: 'DDYO - Mobil Geliştirici', en: 'DDYO - Mobile Developer' },
     desc: {
       tr: 'Fırat Üniversitesi Dijital Dönüşüm ve Yazılım Ofisi’nde yarı zamanlı Mobil Geliştirici; React Native ile kurumsal mobil uygulama geliştirme (Elazığ · Ofiste).',
@@ -84,6 +95,18 @@ export const experienceItems: ExperienceItem[] = [
     status: { tr: 'Tamamlandı', en: 'Completed' },
     logo: '/logos/DDYO.png',
     org: { tr: 'Fırat Üniversitesi DDYO', en: 'Firat University DDYO' },
+    progress: 100,
+  },
+  {
+    period: { tr: 'Aralık 2025 - Mart 2026', en: 'Dec 2025 - Mar 2026' },
+    title: { tr: 'DreaMind - Backend & AI Engineer', en: 'DreaMind - Backend & AI Engineer' },
+    desc: {
+      tr: '2KAI ekibinde FastAPI asenkron backend ve AI katmanı; Google Play IAP ve abonelik yönetim sistemleri. Ürün Google Play’de yayında.',
+      en: 'Async FastAPI backend and AI layer with the 2KAI team; Google Play IAP and subscription systems. Product live on Google Play.',
+    },
+    status: { tr: 'Tamamlandı', en: 'Completed' },
+    logo: '/logos/dreamind.png',
+    org: { tr: '2KAI / DreaMind', en: '2KAI / DreaMind' },
     progress: 100,
   },
 ]

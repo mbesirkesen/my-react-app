@@ -45,8 +45,8 @@ export default function Hero() {
           </h1>
           <p className="text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed">
             {locale === 'tr'
-              ? 'HSD Fırat Core Team üyesi; mobil, backend ve Agentic AI odaklı ürünler geliştiren bir mühendis adayı. AgeSA stajı, DDYO mobil deneyimi ve CodeNight birincilikleri.'
-              : 'HSD Firat Core Team member building mobile, backend, and Agentic AI products — shaped by an AgeSA internship, DDYO mobile experience, and CodeNight wins.'}
+              ? 'Agentic AI, RAG ve full-stack ürünler geliştiren yazılım mühendisi adayı. Microsoft & AgeSA stajları, Evatro full-stack deneyimi, Parkçeyiz canlı ürünü ve hackathon birincilikleri.'
+              : 'Software engineering student building Agentic AI, RAG, and full-stack products — shaped by Microsoft & AgeSA internships, Evatro full-stack work, Parkçeyiz in production, and hackathon wins.'}
           </p>
 
           <div className="flex flex-wrap gap-2.5">
@@ -81,6 +81,14 @@ export default function Hero() {
             >
               GitHub
             </a>
+            <a
+              href="https://medium.com/@kesenmuhammedbesir"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-slate-300 dark:border-slate-700 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+            >
+              Medium
+            </a>
           </div>
         </motion.div>
 
@@ -94,8 +102,8 @@ export default function Hero() {
             {locale === 'tr' ? 'Öne Çıkan Uzmanlıklar' : 'Core Expertise'}
           </p>
           <ul className="space-y-3 text-sm">
-            <li className="p-3 rounded-lg bg-slate-100/70 dark:bg-slate-800/60">Mobile: React Native, React.js</li>
-            <li className="p-3 rounded-lg bg-slate-100/70 dark:bg-slate-800/60">AI & Backend: LangGraph, FastAPI, Node.js, Prisma</li>
+            <li className="p-3 rounded-lg bg-slate-100/70 dark:bg-slate-800/60">AI & Backend: RAG, LangGraph, FastAPI, Local LLMs</li>
+            <li className="p-3 rounded-lg bg-slate-100/70 dark:bg-slate-800/60">Full-Stack: React Native, Next.js, TypeScript, Prisma</li>
             <li className="p-3 rounded-lg bg-slate-100/70 dark:bg-slate-800/60">IoT: ESP-NOW, MQTT, Embedded C++, Arduino</li>
           </ul>
         </motion.div>

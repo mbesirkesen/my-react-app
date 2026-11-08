@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto text-center text-sm text-slate-500 dark:text-slate-400 space-y-2">
         <p className="font-medium text-slate-700 dark:text-slate-200">
           Muhammed Beşir Kesen ·{' '}
-          {locale === 'tr' ? 'Yazılım Mühendisliği Öğrencisi & Mobil Geliştirici' : 'Software Engineering Student & Mobile Developer'}
+          {locale === 'tr' ? 'Yazılım Mühendisliği Öğrencisi & Full-Stack Geliştirici' : 'Software Engineering Student & Full-Stack Developer'}
         </p>
         <p>
           © {new Date().getFullYear()}{' '}
