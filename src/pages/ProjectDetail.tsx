@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import { projects } from '../data/projects'
 import { useLocale } from '../i18n/LocaleContext'
 import { useMemo, useState } from 'react'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function ProjectDetail() {
   const { locale } = useLocale()
@@ -21,6 +22,24 @@ export default function ProjectDetail() {
         delay: (i % 6) * 0.08,
       })),
     [],
+  )
+
+  usePageMeta(
+    project
+      ? {
+          title: `${project.title[locale]} | Muhammed Beşir Kesen`,
+          description: project.subtitle[locale],
+        }
+      : {
+          title:
+            locale === 'tr'
+              ? 'Proje bulunamadı | Muhammed Beşir Kesen'
+              : 'Project not found | Muhammed Beşir Kesen',
+          description:
+            locale === 'tr'
+              ? 'Aradığınız proje mevcut değil.'
+              : 'The project you are looking for does not exist.',
+        },
   )
 
   if (!project) {
@@ -123,6 +142,17 @@ export default function ProjectDetail() {
               ))}
             </ul>
           </section>
+
+          {project.highlights[locale].length > 0 && (
+            <section>
+              <h2 className="text-lg font-semibold">{locale === 'tr' ? 'Öne çıkanlar' : 'Highlights'}</h2>
+              <ul className="mt-3 space-y-2 list-disc pl-5 text-slate-600 dark:text-slate-300">
+                {project.highlights[locale].map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           <section>
             <h2 className="text-lg font-semibold">{locale === 'tr' ? 'Teknoloji yığını' : 'Tech stack'}</h2>

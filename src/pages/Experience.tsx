@@ -1,9 +1,17 @@
 import { motion } from 'motion/react'
 import { useLocale } from '../i18n/LocaleContext'
 import { experienceItems } from '../data/experience'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function Experience() {
   const { locale } = useLocale()
+  usePageMeta({
+    title: locale === 'tr' ? 'Deneyim | Muhammed Beşir Kesen' : 'Experience | Muhammed Beşir Kesen',
+    description:
+      locale === 'tr'
+        ? 'Microsoft, AgeSA, Evatro, DDYO, HSD Fırat ve DreaMind deneyimleri.'
+        : 'Experience at Microsoft, AgeSA, Evatro, DDYO, HSD Firat, and DreaMind.',
+  })
   return (
     <section className="max-w-6xl mx-auto px-4 py-10 space-y-6">
       <h1 className="text-3xl font-bold">{locale === 'tr' ? 'Deneyim' : 'Experience'}</h1>

@@ -2,9 +2,17 @@ import { motion } from 'motion/react'
 import { useLocale } from '../i18n/LocaleContext'
 import { Link } from 'react-router-dom'
 import { awards } from '../data/awards'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function Awards() {
   const { locale } = useLocale()
+  usePageMeta({
+    title: locale === 'tr' ? 'Ödüller | Muhammed Beşir Kesen' : 'Awards | Muhammed Beşir Kesen',
+    description:
+      locale === 'tr'
+        ? 'Hackathon birincilikleri, sertifikalar ve uluslararası program başarıları.'
+        : 'Hackathon wins, certificates, and international program achievements.',
+  })
   const firstPlaces = awards.filter((a) => a.rank === 'gold').length
   const secondPlaces = awards.filter((a) => a.rank === 'silver').length
   const finalists = awards.filter((a) => a.rank === 'finalist').length

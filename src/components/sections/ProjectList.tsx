@@ -5,18 +5,19 @@ import { useLocale } from '../../i18n/LocaleContext'
 
 export default function ProjectList() {
   const { locale } = useLocale()
+  const featured = projects.filter((p) => p.featured).slice(0, 6)
   return (
     <section id="projects" className="py-16 px-4">
       <div className="max-w-6xl mx-auto space-y-6">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
-              {locale === 'tr' ? 'Projeler' : 'Projects'}
+              {locale === 'tr' ? 'Öne Çıkan Projeler' : 'Featured Projects'}
             </h2>
             <p className="text-slate-600 dark:text-slate-300">
               {locale === 'tr'
-                ? 'CV ve gerçek deneyimimden seçilmiş güncel ürün, AI ve IoT çalışmaları.'
-                : 'Selected real-world product, AI, and IoT work based on my CV and professional experience.'}
+                ? 'Seçilmiş ürün, AI ve IoT çalışmaları — tüm liste için projeler sayfasına geç.'
+                : 'Selected product, AI, and IoT work — open the projects page for the full list.'}
             </p>
           </div>
           <Link to="/projects" className="text-cyan-600 hover:text-cyan-700 font-medium text-sm">
@@ -25,7 +26,7 @@ export default function ProjectList() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {projects.map((project, idx) => (
+          {featured.map((project, idx) => (
             <motion.article
               key={project.id}
               initial={{ opacity: 0, y: 18 }}

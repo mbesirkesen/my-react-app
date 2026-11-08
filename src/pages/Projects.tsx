@@ -5,6 +5,7 @@ import { projects as allProjects } from '../data/projects'
 import { applyFilters } from '../utils/projectHelpers'
 import type { Category, SortField, SortOrder } from '../types/project'
 import { useLocale } from '../i18n/LocaleContext'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 const categories: Array<Category | 'all'> = ['all', 'mobile', 'backend', 'iot', 'ai', 'fullstack']
 
@@ -14,6 +15,14 @@ export default function Projects() {
   const [category, setCategory] = useState<Category | 'all'>('all')
   const [sortField, setSortField] = useState<SortField>('year')
   const [sortOrder, setSortOrder] = useState<SortOrder>('desc')
+
+  usePageMeta({
+    title: locale === 'tr' ? 'Projeler | Muhammed Beşir Kesen' : 'Projects | Muhammed Beşir Kesen',
+    description:
+      locale === 'tr'
+        ? 'Parkçeyiz, ProvaMüşteri, DreaMind, Gadanalam ve diğer AI / full-stack projeler.'
+        : 'Parkçeyiz, ProvaMüşteri, DreaMind, Gadanalam, and other AI / full-stack projects.',
+  })
 
   const filtered = useMemo(
     () => applyFilters(allProjects, search, category, sortField, sortOrder, locale),

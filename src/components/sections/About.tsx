@@ -51,12 +51,10 @@ export default function About() {
           <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white/60 dark:bg-slate-900/40 p-3">
             <p className="text-xs text-slate-500 dark:text-slate-400">Medium</p>
             <a
-              href="https://medium.com/@kesenmuhammedbesir"
-              target="_blank"
-              rel="noreferrer"
+              href="#writing"
               className="mt-1 inline-flex text-sm text-cyan-600 font-medium"
             >
-              {locale === 'tr' ? 'Lokal LLM ve RAG yazıları →' : 'Local LLM & RAG posts →'}
+              {locale === 'tr' ? 'Yazılarıma göz at →' : 'See my writing →'}
             </a>
           </div>
         </div>

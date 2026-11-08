@@ -6,6 +6,7 @@ import ProjectDetail from './pages/ProjectDetail'
 import Projects from './pages/Projects'
 import Experience from './pages/Experience'
 import Awards from './pages/Awards'
+import NotFound from './pages/NotFound'
 import './App.css'
 import { LocaleProvider } from './i18n/LocaleContext'
 
@@ -22,6 +23,7 @@ function App() {
               <Route path="/projects/:slug" element={<ProjectDetail />} />
               <Route path="/experience" element={<Experience />} />
               <Route path="/awards" element={<Awards />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />

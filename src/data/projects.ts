@@ -304,7 +304,7 @@ export const projects: Project[] = [
     tech: ['Arduino', 'ESP8266', 'ESP-NOW', 'MQTT'],
     year: 2025,
     category: 'iot',
-    featured: true,
+    featured: false,
     image: '/projeler/kozalak-1.png',
     gallery: ['/projeler/kozalak-2.png', '/projeler/kozalak-3.png', '/projeler/kozalak-4.png'],
     links: {},

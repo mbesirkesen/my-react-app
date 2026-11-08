@@ -5,8 +5,20 @@ import ProjectList from '../components/sections/ProjectList'
 import ContactSection from '../components/sections/ContactSection'
 import ExperienceTimeline from '../components/sections/ExperienceTimeline'
 import AwardsSection from '../components/sections/AwardsSection'
+import WritingSection from '../components/sections/WritingSection'
+import { useLocale } from '../i18n/LocaleContext'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function Home() {
+  const { locale } = useLocale()
+  usePageMeta({
+    title: locale === 'tr' ? 'Muhammed Beşir Kesen | Yazılım Mühendisi' : 'Muhammed Beşir Kesen | Software Engineer',
+    description:
+      locale === 'tr'
+        ? 'Agentic AI, RAG ve full-stack ürünler. Microsoft & AgeSA stajları, Evatro, Parkçeyiz ve hackathon birincilikleri.'
+        : 'Agentic AI, RAG, and full-stack products. Microsoft & AgeSA internships, Evatro, Parkçeyiz, and hackathon wins.',
+  })
+
   return (
     <>
       <Hero />
@@ -17,6 +29,7 @@ export default function Home() {
       <ExperienceTimeline />
       <AwardsSection />
       <ProjectList />
+      <WritingSection />
       <ContactSection />
     </>
   )
