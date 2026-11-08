@@ -137,6 +137,16 @@ export default function ProjectDetail() {
 
           {(project.links.store || project.links.source || project.links.demo) && (
             <section className="flex flex-wrap gap-3">
+              {project.links.demo && (
+                <a
+                  href={project.links.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center rounded-lg bg-cyan-600 text-white px-4 py-2 text-sm hover:bg-cyan-700"
+                >
+                  {locale === 'tr' ? 'Canlı Site' : 'Live Demo'}
+                </a>
+              )}
               {project.links.store && (
                 <a
                   href={project.links.store}

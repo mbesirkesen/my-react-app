@@ -10,6 +10,28 @@ export type AwardItem = {
 export const awards: AwardItem[] = [
   {
     rank: 'gold',
+    title: { tr: 'Gakcoding Hackathon 1.lik', en: 'Gakcoding Hackathon 1st Place' },
+    detail: {
+      tr: 'Takım Gadanalam — 15 takım arasından birincilik · FÜ-BYT & Elazığ Belediyesi',
+      en: 'Team Gadanalam — 1st among 15 teams · FÜ-BYT & Elazığ Municipality',
+    },
+    year: '2026',
+    badges: ['Hackathon', 'Team', 'Web'],
+    link: '/projects/gadanalam',
+  },
+  {
+    rank: 'gold',
+    title: { tr: 'Hacktoberfest Elazığ — En Yaratıcı Proje', en: 'Hacktoberfest Elazığ — Most Creative Project' },
+    detail: {
+      tr: 'ProvaMüşteri — yerel AI ile zor müşteri simülasyonu (Gemma 4 · FastAPI · React) · FÜBEV / MLH',
+      en: 'ProvaMüşteri — local AI hard-customer simulation (Gemma 4 · FastAPI · React) · FÜBEV / MLH',
+    },
+    year: '2026',
+    badges: ['Local AI', 'FastAPI', 'Hackathon'],
+    link: '/projects/provamusteri',
+  },
+  {
+    rank: 'gold',
     title: { tr: 'CodeNight 1.lik (T3 Vakfı)', en: 'CodeNight 1st Place (T3 Foundation)' },
     detail: { tr: 'AI Recipe Chatbot / ŞefBot - Takım Kaptanı & Backend', en: 'AI Recipe Chatbot / ŞefBot - Team Captain & Backend' },
     year: '2026',

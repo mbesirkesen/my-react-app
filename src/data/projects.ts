@@ -2,6 +2,142 @@ import type { Project } from '../types/project'
 
 export const projects: Project[] = [
   {
+    id: 7,
+    slug: 'gadanalam',
+    title: { tr: 'Gadanalam', en: 'Gadanalam' },
+    subtitle: {
+      tr: 'Harput Vişnesi — teknoloji, sanat ve hikâyeyi birleştiren etkileşimli deneyim',
+      en: 'Harput Cherry — an interactive experience blending technology, art, and storytelling',
+    },
+    description: {
+      tr: 'Elazığ’ın özgün değerlerinden ilham alan Gadanalam; Harput Vişnesi etrafında teknoloji, sanat ve hikâyeyi birleştiren etkileşimli bir web deneyimi. Takım Gadanalam ile Gakcoding Hackathon’da 15 takım arasından birincilik kazandı.',
+      en: 'Inspired by Elazığ’s distinctive values, Gadanalam is an interactive web experience around Harput Cherry that blends technology, art, and storytelling. With team Gadanalam it took 1st place among 15 teams at the Gakcoding Hackathon.',
+    },
+    role: {
+      tr: 'Takım Üyesi — Gadanalam',
+      en: 'Team Member — Gadanalam',
+    },
+    problem: {
+      tr: 'Elazığ’ın kültürel ve yerel değerlerini yalnızca metinle anlatmak yerine, ziyaretçinin keşfedebileceği etkileşimli bir dijital deneyime dönüştürme ihtiyacı.',
+      en: 'Need to turn Elazığ’s cultural and local values into an interactive digital experience visitors can explore — not just plain text.',
+    },
+    architecture: {
+      tr: ['Etkileşimli web deneyimi', 'Hikâye odaklı anlatı akışı', 'Vercel üzerinde canlı yayın'],
+      en: ['Interactive web experience', 'Story-driven narrative flow', 'Live deployment on Vercel'],
+    },
+    outcomes: {
+      tr: [
+        'Gakcoding Hackathon 1.lik (FÜ-BYT & Elazığ Belediyesi)',
+        '15 takım arasından birincilik',
+        'Canlı demo: gadanalam.vercel.app',
+      ],
+      en: [
+        'Gakcoding Hackathon 1st place (FÜ-BYT & Elazığ Municipality)',
+        '1st among 15 teams',
+        'Live demo: gadanalam.vercel.app',
+      ],
+    },
+    highlights: {
+      tr: [
+        'Harput Vişnesi temalı etkileşimli anlatı',
+        'Teknoloji + sanat + hikâye birleşimi',
+        'Hackathon birinciliği',
+      ],
+      en: [
+        'Interactive narrative around Harput Cherry',
+        'Blend of technology, art, and storytelling',
+        'Hackathon first place',
+      ],
+    },
+    tech: ['Web', 'Interactive Story', 'Vercel'],
+    year: 2026,
+    category: 'fullstack',
+    featured: true,
+    image: '/projeler/gadanalam-1.jpg',
+    gallery: ['/projeler/gadanalam-2.jpg', '/projeler/gadanalam-3.jpg'],
+    links: { demo: 'https://gadanalam.vercel.app/' },
+  },
+  {
+    id: 6,
+    slug: 'provamusteri',
+    title: { tr: 'ProvaMüşteri', en: 'ProvaMüşteri' },
+    subtitle: {
+      tr: 'Yerel AI ile kurala bağlı müşteri provası — Hacktoberfest En Yaratıcı Proje',
+      en: 'Policy-bound customer rehearsal with local AI — Hacktoberfest Most Creative Project',
+    },
+    description: {
+      tr: 'Çalışanların, mağaza veya otelin kendi kurallarına göre gerçek bir müşteriyle prova yapmasını sağlayan eğitim platformu. Karşıdaki kişi buluttaki genel bir sohbet botu değil; bilgisayarda çalışan Gemma 4, o işletmenin politikasına göre müşteri rolünde konuşuyor. Görüşme bitince empati, kural doğruluğu, çözüm ve netlik üzerinden puanlıyor; kanıt olarak çalışanın kendi cümlesini alıntılıyor.',
+      en: 'A training platform where employees rehearse with a realistic customer against the store or hotel’s own rules. The counterpart is not a generic cloud chatbot — Gemma 4 runs on the machine and plays the customer under that business’s policy. After the session it scores empathy, policy accuracy, solution focus, and clarity, citing the employee’s own lines as evidence.',
+    },
+    role: {
+      tr: 'Full-Stack & AI Developer',
+      en: 'Full-Stack & AI Developer',
+    },
+    problem: {
+      tr: 'Kuralı okumak yetmiyor. Yeni kasiyer veya resepsiyonist, fişi olmayan sinirli müşterinin ya da gece gelen misafirin karşısında ne diyeceğini çoğu zaman ilk kez canlıda deniyor. ProvaMüşteri bu ilk denemeyi eğitim ortamına taşıyor; yönetici kimin prova yaptığını görüyor, turları dinleyebiliyor, puanı gerekçeyle düzeltebiliyor. Konuşma işletmenin kendi makinesinde kalıyor.',
+      en: 'Reading the policy is not enough. New cashiers and front-desk staff often face an angry no-receipt customer or a midnight guest for the first time live. ProvaMüşteri moves that first attempt into training — managers see who practiced, can listen to turns, and adjust scores with reasons. Conversations stay on the business’s own machine.',
+    },
+    architecture: {
+      tr: [
+        'Arayüz: React, TypeScript, Vite',
+        'API ve iş kuyruğu: FastAPI, SQLite, Alembic',
+        'Yerel Gemma 4 E4B (4-bit, MLX) — STT, müşteri cevabı, değerlendirme',
+        'Ses: macOS say (cinsiyete göre) veya Windows/Linux’ta Piper',
+        'Mimari: tarayıcı → API → kuyruk → worker → model-service',
+        'Davranış fine-tune değil; senaryo, politika ve moda göre sürümlü prompt’lar',
+      ],
+      en: [
+        'UI: React, TypeScript, Vite',
+        'API and job queue: FastAPI, SQLite, Alembic',
+        'Local Gemma 4 E4B (4-bit, MLX) — STT, customer reply, scoring',
+        'Audio: macOS say (by gender) or Piper on Windows/Linux',
+        'Architecture: browser → API → queue → worker → model-service',
+        'No fine-tuning — versioned prompts from scenario, policy, and mode',
+      ],
+    },
+    outcomes: {
+      tr: [
+        'Hacktoberfest Elazığ En Yaratıcı Proje ödülü',
+        'Altı hazır senaryo (3 mağaza + 3 otel) ve yönetici senaryo taslağı',
+        'Mesaj / telefon kanalları, sert müşteri ve adaptive tekrar dene',
+        'Puanlı rapor + yönetici denetimi; veri işletmede kalır',
+      ],
+      en: [
+        'Hacktoberfest Elazığ Most Creative Project award',
+        'Six preset scenarios (3 store + 3 hotel) plus manager-drafted scenarios',
+        'Message / phone channels, hard-customer mode, and adaptive retry',
+        'Scored reports with manager review; data stays on-prem',
+      ],
+    },
+    highlights: {
+      tr: [
+        'Empati, kural doğruluğu, çözüm ve netlik rubriği; alıntılı kanıt',
+        'Yazılı mesaj veya eller serbest telefon prova akışı',
+        'Sert müşteri: kısa cevap, kural dışı yumuşama yok',
+        'Erkek/kadın müşteri sesleri; MIT lisanslı açık kaynak',
+      ],
+      en: [
+        'Empathy, policy accuracy, solution, and clarity rubric with quoted evidence',
+        'Text message or hands-free phone rehearsal flows',
+        'Hard customer: short replies, no out-of-policy softening',
+        'Male/female customer voices; MIT-licensed open source',
+      ],
+    },
+    tech: ['React', 'TypeScript', 'FastAPI', 'Gemma 4', 'SQLite', 'MLX'],
+    year: 2026,
+    category: 'ai',
+    featured: true,
+    image: '/projeler/provamusteri-1.png',
+    gallery: [
+      '/projeler/provamusteri-2.png',
+      '/projeler/provamusteri-3.png',
+      '/projeler/provamusteri-4.png',
+      '/projeler/provamusteri-5.png',
+      '/projeler/provamusteri-6.jpg',
+    ],
+    links: { source: 'https://github.com/YunusNakkas/hackaton' },
+  },
+  {
     id: 1,
     slug: 'dreamind',
     title: { tr: 'Dreamind', en: 'Dreamind' },

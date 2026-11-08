@@ -28,7 +28,34 @@ export default function ExperienceTimeline() {
               <span className="absolute -left-[1.05rem] md:-left-[1.4rem] top-6 w-3 h-3 rounded-full bg-cyan-500 ring-4 ring-cyan-100 dark:ring-cyan-950" />
               <p className="text-xs text-cyan-600 mb-1">{item.period[locale]}</p>
               <h3 className="font-semibold">{item.title[locale]}</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-300 mt-2">{item.desc[locale]}</p>
+              {item.roles?.length ? (
+                <div className="mt-3 relative pl-3.5 space-y-3">
+                  <div className="absolute left-1 top-1.5 bottom-1.5 w-px bg-slate-200 dark:bg-slate-700" />
+                  {item.roles.map((role) => (
+                    <div key={role.title.en} className="relative">
+                      <span
+                        className={`absolute -left-[0.7rem] top-1.5 w-1.5 h-1.5 rounded-full ${
+                          role.current ? 'bg-cyan-500' : 'bg-slate-300 dark:bg-slate-600'
+                        }`}
+                      />
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        <p className="text-sm font-medium text-slate-800 dark:text-slate-100">{role.title[locale]}</p>
+                        {role.current && (
+                          <span className="inline-flex rounded-full px-1.5 py-0.5 text-[10px] font-medium bg-cyan-100 text-cyan-700 dark:bg-cyan-900/40 dark:text-cyan-300">
+                            {locale === 'tr' ? 'Güncel' : 'Current'}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-[11px] text-cyan-600">{role.period[locale]}</p>
+                      {role.desc && (
+                        <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">{role.desc[locale]}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-sm text-slate-600 dark:text-slate-300 mt-2">{item.desc[locale]}</p>
+              )}
               <div className="mt-3">
                 <span
                   className={`inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-medium ${
